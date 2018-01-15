@@ -1,0 +1,7 @@
+from PIL import Image
+
+fd_img = open('test-image.jpeg', 'r')
+img = Image.open(fd_img)
+img = img.resize((100, 100), Image.ANTIALIAS)
+img.save('test-image-contain.jpeg', img.format)
+fd_img.close()
