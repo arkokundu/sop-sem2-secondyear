@@ -1,0 +1,69 @@
+#include <stdio>
+
+void forwardprop(float* units,int layers,int* noofunits, float* weights);
+
+void backprop();
+
+__global__ void addnactivate();
+__global__ void forwardmultiply(); 
+
+int main(int argc, char **argv)
+{
+	const int layers=6;//number of layers(input+hidden+output layers)
+	const int noofunits[]={4800,2400,1000,100,10,2};// no of units in each layer
+	double totalunits=0;
+	int i=0;
+	for(i=0;i<layers;i++)
+	{
+		totalunits += noofunits[i];
+	}
+	float units[totalunits]={0}
+	double noofweights;
+	for(i=0;i<layers-1;i++)
+	{
+		noofweights+=(noofunits[i]+1)*noofunits[i+1]; //init size as 0
+	}
+	return 0;
+}
+
+__global__ void forwardmultiply()
+{ 
+
+}
+/*
+This function will Multiple weights to the units of previous layerwhich will later be added using addnactivate
+*/
+
+__global__ void addnactivate()
+{
+
+}
+/*
+This thread block will be created for each unit
+Reduce add the inouts to an unit and apply the activation function on the output
+*/
+
+void forwardprop(float* units;int layers,int* noofunits, float* weights)
+{
+
+}
+
+/*
+1. units: An array of size (summation of noof units) that contains values of all the value of units
+2. layers: The total number of layers (input + hidden + output layers)
+3. noofunits: This will be an array of Size = number of layers each element 
+	will contain number of units in the corresponding layer( Excluding the Biasing unit)
+	Eg. noofunits[0] will have no. of input units, noofunits[1] will have no. of units in first hidden layer,
+	noofunits[layers-1] will have number of units in output layer and so.
+4. Weights will be an one dimentionalarray that will contain all the weights in rolled out format its size will be
+	
+	for(i=0;i<layers-1;i++)
+	{
+		size+=(noofunits[i]+1)*noofunits[i+1]; //init size as 0
+	}
+*/
+
+void backprop()
+{
+
+}
