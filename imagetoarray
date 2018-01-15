@@ -1,0 +1,5 @@
+// install GdkPixbuf library
+
+GdkPixbuf *pixbuf = gdk_pixbuf_new_from_file ("image.png", NULL);
+unsigned char *pixels = gdk_pixbuf_get_pixels (pixbuf);
+int *array = reinterpret_cast<int*>(pixels);
